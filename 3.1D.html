@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="3.1D.css">
+	<link rel="stylesheet" href="3.1D2.css">
+</head>
+<body>
+	<div style="display: flex; flex-direction: column; margin: 50px;">
+		<form>
+			<label for="username">Username:</label>
+			<input type="text" id="username" name="username"><br><br>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password"><br><br>
+			<input type="submit" value="Submit">
+		</form>
+	</div>
+	
+    <div id="app" style="display: block; margin: 50px;">
+        <h1>Task Manager</h1>
+        <div class="task-form">
+            <input type="text" v-model="newTask" @keyup.enter="addTask" placeholder="Add a new task">
+            <button @click="addTask">Add Task</button>
+        </div>
+        <div class="task-list">
+            <div v-for="(task, index) in tasks" :key="index" class="task">
+                <p>{{ task }}</p>
+                <div class="task-actions">
+                    <button @click="editTask(index)">Edit</button>
+                    <button @click="deleteTask(index)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	<div style="margin: 50px;">
+		<video width="320" height="240" controls>
+			<source src="movie.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+	</div>
+	
+	<div style="display: block; margin: 50px;">
+		<audio controls>
+			<source src="music.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+	</div>
+	
+	
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/cii6ruuycQA&ab_channel=OliviaRodrigoVEVO" frameborder="0" allowfullscreen></iframe>
+
+	<div id="map" style="height: 400px; width: 100%;"></div>
+			<df-messenger
+		intent="WELCOME_INTENT"
+		chat-title="Your Chatbot"
+		agent-id="YOUR_AGENT_ID"
+		language-code="en"
+		></df-messenger>
+	
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="3.1D.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" 
+            async defer></script>
+    <script>
+         function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 40.7128, lng: -74.0060},
+                zoom: 15
+            });
+        }
+    </script>
+	 <script src="3.1D.js"></script>
+</body>
+</html>
